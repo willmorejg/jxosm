@@ -1,0 +1,106 @@
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified"
+    xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    xmlns:jaxb="http://java.sun.com/xml/ns/jaxb" jaxb:version="2.0">
+    <xs:element name="tag">
+        <xs:complexType>
+            <xs:simpleContent>
+                <xs:extension base="xs:string">
+                    <xs:attribute type="xs:string" name="k" use="optional"/>
+                    <xs:attribute type="xs:string" name="v" use="optional"/>
+                </xs:extension>
+            </xs:simpleContent>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="nd">
+        <xs:complexType>
+            <xs:simpleContent>
+                <xs:extension base="xs:string">
+                    <xs:attribute type="xs:long" name="ref" use="optional"/>
+                </xs:extension>
+            </xs:simpleContent>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="member">
+        <xs:complexType>
+            <xs:simpleContent>
+                <xs:extension base="xs:string">
+                    <xs:attribute type="xs:string" name="type" use="optional"/>
+                    <xs:attribute type="xs:long" name="ref" use="optional"/>
+                    <xs:attribute type="xs:string" name="role" use="optional"/>
+                </xs:extension>
+            </xs:simpleContent>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="note" type="xs:string"/>
+    <xs:element name="meta">
+        <xs:complexType>
+            <xs:simpleContent>
+                <xs:extension base="xs:string">
+                    <xs:attribute type="xs:dateTime" name="osm_base"/>
+                </xs:extension>
+            </xs:simpleContent>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="node">
+        <xs:complexType mixed="true">
+            <xs:sequence>
+                <xs:element ref="tag" maxOccurs="unbounded" minOccurs="0"/>
+            </xs:sequence>
+            <xs:attribute type="xs:long" name="id" use="optional"/>
+            <xs:attribute type="xs:float" name="lat" use="optional"/>
+            <xs:attribute type="xs:float" name="lon" use="optional"/>
+            <xs:attribute type="xs:byte" name="version" use="optional"/>
+            <xs:attribute type="xs:dateTime" name="timestamp" use="optional"/>
+            <xs:attribute type="xs:int" name="changeset" use="optional"/>
+            <xs:attribute type="xs:int" name="uid" use="optional"/>
+            <xs:attribute type="xs:string" name="user" use="optional"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="way">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="nd" maxOccurs="unbounded" minOccurs="0"/>
+                <xs:element ref="tag" maxOccurs="unbounded" minOccurs="0"/>
+            </xs:sequence>
+            <xs:attribute type="xs:int" name="id" use="optional"/>
+            <xs:attribute type="xs:byte" name="version" use="optional"/>
+            <xs:attribute type="xs:dateTime" name="timestamp" use="optional"/>
+            <xs:attribute type="xs:int" name="changeset" use="optional"/>
+            <xs:attribute type="xs:int" name="uid" use="optional"/>
+            <xs:attribute type="xs:string" name="user" use="optional"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="relation">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="member" maxOccurs="unbounded" minOccurs="0"/>
+                <xs:element ref="tag" maxOccurs="unbounded" minOccurs="0"/>
+            </xs:sequence>
+            <xs:attribute type="xs:int" name="id" use="optional"/>
+            <xs:attribute type="xs:short" name="version" use="optional"/>
+            <xs:attribute type="xs:dateTime" name="timestamp" use="optional"/>
+            <xs:attribute type="xs:int" name="changeset" use="optional"/>
+            <xs:attribute type="xs:int" name="uid" use="optional"/>
+            <xs:attribute type="xs:string" name="user" use="optional"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="osm">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="note"/>
+                <xs:element ref="meta"/>
+                <xs:element ref="node" maxOccurs="unbounded" minOccurs="0"/>
+                <xs:element ref="way" maxOccurs="unbounded" minOccurs="0">
+                    <xs:annotation>
+                        <xs:appinfo>
+                            <jaxb:property name="ways"/>
+                        </xs:appinfo>
+                    </xs:annotation>
+                </xs:element>
+                <xs:element ref="relation" maxOccurs="unbounded" minOccurs="0"/>
+            </xs:sequence>
+            <xs:attribute type="xs:float" name="version"/>
+            <xs:attribute type="xs:string" name="generator"/>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>
