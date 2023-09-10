@@ -20,12 +20,39 @@ James G Willmore - LJ Computing - (C) 2023
 */
 package net.ljcomputing.jxosm;
 
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import java.nio.file.Path;
+import javax.xml.bind.Marshaller;
+import javax.xml.bind.Unmarshaller;
 import org.junit.jupiter.api.Test;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import net.ljcomputing.jxosm.jaxb.Osm;
+import net.ljcomputing.jxosm.serialization.OsmSerializer;
 
 @SpringBootTest
 class JxosmApplicationTests {
+    private static final Logger log = LoggerFactory.getLogger(JxosmApplicationTests.class);
+    @Autowired private Unmarshaller osmUnmarshaller;
+    @Autowired private Marshaller osmMarshaller;
+    @Autowired private OsmSerializer osmSerializerJaxb;
 
     @Test
-    void contextLoads() {}
+    void contextLoads() {
+        assertNotNull(osmUnmarshaller);
+        assertNotNull(osmMarshaller);
+    }
+
+    @Test
+    void deserializeSerializeOsm() {
+        final Path osmPath = Path.of(System.getProperty("user.dir"), "src", "test", "resources", "data", "osm", "test.osm");
+        final Osm osm = osmSerializerJaxb.deserializeToOsm(osmPath.toFile());
+        assertNotNull(osm);
+        log.debug("osm: {}", osm);
+
+        final Path osmToPath = Path.of(System.getProperty("user.dir"), "src", "test", "resources", "data", "osm", "out.osm");
+        osmSerializerJaxb.serializeFromOsm(osm, osmToPath.toFile());
+    }
 }
