@@ -20,17 +20,16 @@ James G Willmore - LJ Computing - (C) 2023
 */
 package net.ljcomputing.jxosm.processor.impl;
 
-import java.util.Map;
 import javax.xml.stream.XMLStreamException;
 import javax.xml.stream.events.XMLEvent;
 import lombok.extern.slf4j.Slf4j;
+import net.ljcomputing.jxosm.jaxb.Way;
 import net.ljcomputing.jxosm.processor.XmlEventProcessor;
-import net.ljcomputing.jxosm.utils.XmlAttriubtesUtils;
 import org.springframework.stereotype.Component;
 
 @Component
 @Slf4j
-public class WayProcessor implements XmlEventProcessor {
+public class WayProcessor extends BaseProcessor implements XmlEventProcessor {
     public static final String ELEMENT_TO_PROCESS = "way";
 
     @Override
@@ -40,7 +39,8 @@ public class WayProcessor implements XmlEventProcessor {
 
     @Override
     public void process(final XMLEvent event) throws XMLStreamException {
-        final Map<String, String> map = XmlAttriubtesUtils.xmlAttributesToMap(event);
-        log.debug("  {}", map);
+        final Way way = new Way();
+        process(event, way);
+        log.debug("-->> way: {}", way);
     }
 }

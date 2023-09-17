@@ -100,7 +100,7 @@ class JxosmApplicationTests {
                         "resources",
                         "data",
                         "osm",
-                        "test2.osm");
+                        "test.osm");
         osmDeserializeImpl.parse(osmPath.toFile());
     }
 }

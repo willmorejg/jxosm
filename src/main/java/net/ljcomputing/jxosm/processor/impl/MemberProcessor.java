@@ -20,17 +20,16 @@ James G Willmore - LJ Computing - (C) 2023
 */
 package net.ljcomputing.jxosm.processor.impl;
 
-import java.util.Map;
 import javax.xml.stream.XMLStreamException;
 import javax.xml.stream.events.XMLEvent;
 import lombok.extern.slf4j.Slf4j;
+import net.ljcomputing.jxosm.jaxb.Member;
 import net.ljcomputing.jxosm.processor.XmlEventProcessor;
-import net.ljcomputing.jxosm.utils.XmlAttriubtesUtils;
 import org.springframework.stereotype.Component;
 
 @Component
 @Slf4j
-public class MemberProcessor implements XmlEventProcessor {
+public class MemberProcessor extends BaseProcessor implements XmlEventProcessor {
     public static final String ELEMENT_TO_PROCESS = "member";
 
     @Override
@@ -40,7 +39,8 @@ public class MemberProcessor implements XmlEventProcessor {
 
     @Override
     public void process(final XMLEvent event) throws XMLStreamException {
-        final Map<String, String> map = XmlAttriubtesUtils.xmlAttributesToMap(event);
-        log.debug("  {}", map);
+        final Member member = new Member();
+        process(event, member);
+        log.debug("-->> member : {}", member);
     }
 }

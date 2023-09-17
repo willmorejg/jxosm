@@ -41,6 +41,7 @@ public class OsmDeserializeImpl {
 
     public void parse(final File file) {
         try (FileInputStream is = new FileInputStream(file)) {
+            String previousElementName = "osm";
             final XMLEventReader reader = factory.createXMLEventReader(is);
             while (reader.hasNext()) {
                 final XMLEvent event = reader.nextEvent();
@@ -54,6 +55,11 @@ public class OsmDeserializeImpl {
                         processor.process(event);
                     }
                 }
+
+                // if (event.isEndElement()) {
+                //     log.debug("previous element: {}", previousElementName);
+                //     previousElementName = event.asEndElement().getName().getLocalPart();
+                // }
             }
         } catch (final Exception e) {
             log.error("Error encountered while deserializing file {}: ", file, e);
