@@ -23,10 +23,10 @@ package net.ljcomputing.jxosm.config;
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.Marshaller;
 import javax.xml.bind.Unmarshaller;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
 import lombok.extern.slf4j.Slf4j;
 import net.ljcomputing.jxosm.jaxb.Osm;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 
 /** OSM JAXB configuration. */
 @Configuration
@@ -51,7 +51,7 @@ public class OsmJaxbConfig {
 
     /**
      * OSM JAXB marshaller.
-     * 
+     *
      * @return
      */
     @Bean

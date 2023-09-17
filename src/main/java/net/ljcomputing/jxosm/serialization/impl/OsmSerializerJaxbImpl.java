@@ -54,7 +54,7 @@ public class OsmSerializerJaxbImpl implements OsmSerializer {
     @Override
     public void serializeFromOsm(Osm osm, File file) {
         try (FileOutputStream os = new FileOutputStream(file)) {
-			osmMarshaller.marshal(osm, new StreamResult(os));
+            osmMarshaller.marshal(osm, new StreamResult(os));
         } catch (final Exception e) {
             log.error("Error encountered while serializing file {}: ", file, e);
         }

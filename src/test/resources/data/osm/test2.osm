@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<osm version="0.6" generator="Overpass API 0.7.61.5 4133829e">
+<note>The data included in this document is from www.openstreetmap.org. The data is made available under ODbL.</note>
+<meta osm_base="2023-09-10T09:36:13Z"/>
+
+  <node id="11171591103" lat="40.5758230" lon="-74.5082240" version="1" timestamp="2023-09-06T10:49:27Z" changeset="140889140" uid="11824233" user="kmarkish_lyft"/>
+  <way id="5669218" version="15" timestamp="2023-08-25T04:38:25Z" changeset="140351182" uid="11697944" user="kguenther24">
+    <nd ref="427850819"/>
+    <nd ref="11142777738"/>
+    <nd ref="427850822"/>
+    <nd ref="427850823"/>
+    <nd ref="427850824"/>
+    <nd ref="427850825"/>
+    <nd ref="427850826"/>
+    <nd ref="427850828"/>
+    <nd ref="11142777739"/>
+    <nd ref="427850829"/>
+    <nd ref="427850830"/>
+    <nd ref="427850832"/>
+    <nd ref="427850833"/>
+    <nd ref="427850834"/>
+    <nd ref="427850835"/>
+    <nd ref="427850836"/>
+    <nd ref="427850837"/>
+    <nd ref="593977719"/>
+    <nd ref="427850840"/>
+    <tag k="destination" v="42nd Street"/>
+    <tag k="destination:ref:to" v="I 495 East;NY 9A"/>
+    <tag k="hgv" v="designated"/>
+    <tag k="highway" v="motorway_link"/>
+    <tag k="lanes" v="1"/>
+    <tag k="oneway" v="yes"/>
+    <tag k="surface" v="concrete"/>
+    <tag k="tiger:cfcc" v="A63"/>
+    <tag k="tiger:county" v="New York, NY"/>
+    <tag k="tiger:reviewed" v="no"/>
+    <tag k="toll" v="yes"/>
+  </way>
+  <relation id="420746" version="50" timestamp="2023-05-19T02:39:46Z" changeset="136278850" uid="10198270" user="hwierzbicki">
+    <member type="way" ref="46967288" role=""/>
+    <member type="way" ref="997410287" role=""/>
+    <member type="way" ref="1044090911" role=""/>
+    <member type="way" ref="1038976820" role=""/>
+    <member type="way" ref="1038976822" role=""/>
+    <member type="way" ref="1038976821" role=""/>
+    <member type="way" ref="731808089" role=""/>
+    <member type="way" ref="1010389942" role=""/>
+    <member type="way" ref="1001846885" role=""/>
+    <member type="way" ref="1010389943" role=""/>
+    <member type="way" ref="1010389941" role=""/>
+    <member type="way" ref="1010389939" role=""/>
+    <member type="way" ref="833383931" role=""/>
+    <member type="way" ref="1010389940" role=""/>
+    <member type="way" ref="1037178731" role=""/>
+    <member type="way" ref="849626093" role=""/>
+    <member type="way" ref="849626092" role=""/>
+    <member type="way" ref="849626091" role=""/>
+    <member type="way" ref="849626089" role=""/>
+    <member type="way" ref="849626090" role=""/>
+    <member type="way" ref="849626088" role=""/>
+    <member type="way" ref="763582091" role=""/>
+    <member type="way" ref="849626084" role=""/>
+    <member type="way" ref="849626083" role=""/>
+    <member type="way" ref="849626081" role=""/>
+    <member type="way" ref="849626082" role=""/>
+    <member type="way" ref="60614589" role=""/>
+    <member type="way" ref="849626080" role=""/>
+    <member type="way" ref="849626079" role=""/>
+    <member type="way" ref="849626100" role=""/>
+    <member type="way" ref="849626104" role=""/>
+    <member type="way" ref="849626103" role=""/>
+    <member type="way" ref="849626102" role=""/>
+    <member type="way" ref="849626060" role=""/>
+    <member type="way" ref="849626059" role=""/>
+    <member type="way" ref="849626069" role=""/>
+    <member type="way" ref="506752283" role=""/>
+    <member type="way" ref="849626099" role=""/>
+    <member type="way" ref="506752282" role=""/>
+    <member type="way" ref="506752290" role=""/>
+    <member type="way" ref="849626097" role=""/>
+    <member type="way" ref="849626098" role=""/>
+    <member type="way" ref="506752294" role=""/>
+    <member type="way" ref="1010394999" role="forward"/>
+    <member type="way" ref="1010395000" role="forward"/>
+    <member type="way" ref="579984671" role="forward"/>
+    <member type="way" ref="1015105447" role=""/>
+    <member type="way" ref="1015105441" role=""/>
+    <member type="way" ref="1015105442" role=""/>
+    <member type="way" ref="569378881" role="forward"/>
+    <member type="way" ref="1008844913" role="forward"/>
+    <member type="way" ref="1008844915" role="forward"/>
+    <member type="way" ref="1031995772" role="forward"/>
+    <member type="way" ref="1041359329" role="forward"/>
+    <member type="way" ref="1031995773" role="forward"/>
+    <member type="way" ref="1031995774" role="forward"/>
+    <member type="way" ref="1026721239" role="forward"/>
+    <member type="way" ref="60614775" role="forward"/>
+    <member type="way" ref="1042911127" role="forward"/>
+    <member type="way" ref="579984669" role="forward"/>
+    <member type="way" ref="1096147331" role="forward"/>
+    <member type="way" ref="1041359331" role="forward"/>
+    <member type="way" ref="1026721238" role="forward"/>
+    <member type="way" ref="1008844910" role="forward"/>
+    <member type="way" ref="1008844912" role="forward"/>
+    <member type="way" ref="1015105444" role=""/>
+    <member type="way" ref="1015105443" role=""/>
+    <member type="way" ref="1015105446" role=""/>
+    <member type="way" ref="1015105445" role=""/>
+    <member type="way" ref="1010393055" role="forward"/>
+    <member type="way" ref="569378878" role=""/>
+    <member type="way" ref="60614774" role=""/>
+    <member type="way" ref="771270067" role=""/>
+    <member type="way" ref="771270066" role=""/>
+    <member type="way" ref="1174183723" role=""/>
+    <member type="way" ref="1094207891" role=""/>
+    <member type="way" ref="1094207890" role=""/>
+    <member type="way" ref="1094207888" role=""/>
+    <member type="way" ref="1094207889" role=""/>
+    <member type="way" ref="864047171" role=""/>
+    <member type="way" ref="268206279" role=""/>
+    <member type="way" ref="268206278" role=""/>
+    <member type="way" ref="1061497960" role=""/>
+    <member type="way" ref="621631823" role=""/>
+    <member type="way" ref="621631825" role=""/>
+    <member type="way" ref="1096146425" role=""/>
+    <member type="way" ref="1096146188" role=""/>
+    <member type="way" ref="1096146189" role=""/>
+    <member type="way" ref="764121233" role=""/>
+    <member type="way" ref="1016831264" role=""/>
+    <member type="way" ref="60659823" role=""/>
+    <member type="way" ref="761667086" role=""/>
+    <member type="way" ref="1016831263" role=""/>
+    <member type="way" ref="1016831265" role=""/>
+    <member type="way" ref="1014320938" role=""/>
+    <member type="way" ref="247276359" role=""/>
+    <member type="way" ref="247276360" role=""/>
+    <tag k="network" v="US:NJ"/>
+    <tag k="ref" v="82"/>
+    <tag k="route" v="road"/>
+    <tag k="type" v="route"/>
+    <tag k="wikidata" v="Q824830"/>
+    <tag k="wikipedia" v="en:New Jersey Route 82"/>
+  </relation>
+</osm>

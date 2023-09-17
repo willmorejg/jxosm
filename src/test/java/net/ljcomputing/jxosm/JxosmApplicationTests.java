@@ -21,16 +21,22 @@ James G Willmore - LJ Computing - (C) 2023
 package net.ljcomputing.jxosm;
 
 import static org.junit.jupiter.api.Assertions.assertNotNull;
+
 import java.nio.file.Path;
 import javax.xml.bind.Marshaller;
 import javax.xml.bind.Unmarshaller;
+import javax.xml.bind.annotation.XmlType;
+import net.ljcomputing.jxosm.jaxb.Osm;
+import net.ljcomputing.jxosm.jaxb.Way;
+import net.ljcomputing.jxosm.serialization.OsmSerializer;
+import net.ljcomputing.jxosm.serialization.impl.OsmDeserializeImpl;
+import org.assertj.core.util.Arrays;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import net.ljcomputing.jxosm.jaxb.Osm;
-import net.ljcomputing.jxosm.serialization.OsmSerializer;
 
 @SpringBootTest
 class JxosmApplicationTests {
@@ -38,21 +44,63 @@ class JxosmApplicationTests {
     @Autowired private Unmarshaller osmUnmarshaller;
     @Autowired private Marshaller osmMarshaller;
     @Autowired private OsmSerializer osmSerializerJaxb;
+    @Autowired private OsmDeserializeImpl osmDeserializeImpl;
 
     @Test
+    @Disabled
     void contextLoads() {
         assertNotNull(osmUnmarshaller);
         assertNotNull(osmMarshaller);
+        assertNotNull(osmDeserializeImpl);
     }
 
     @Test
+    @Disabled
+    void getJaxbXmlElements() {
+        final Way way = new Way();
+        XmlType annotation = way.getClass().getAnnotation(XmlType.class);
+        log.debug("{}", Arrays.asList(annotation.propOrder()));
+    }
+
+    @Test
+    @Disabled
     void deserializeSerializeOsm() {
-        final Path osmPath = Path.of(System.getProperty("user.dir"), "src", "test", "resources", "data", "osm", "test.osm");
+        final Path osmPath =
+                Path.of(
+                        System.getProperty("user.dir"),
+                        "src",
+                        "test",
+                        "resources",
+                        "data",
+                        "osm",
+                        "test.osm");
         final Osm osm = osmSerializerJaxb.deserializeToOsm(osmPath.toFile());
         assertNotNull(osm);
         log.debug("osm: {}", osm);
 
-        final Path osmToPath = Path.of(System.getProperty("user.dir"), "src", "test", "resources", "data", "osm", "out.osm");
+        final Path osmToPath =
+                Path.of(
+                        System.getProperty("user.dir"),
+                        "src",
+                        "test",
+                        "resources",
+                        "data",
+                        "osm",
+                        "out.osm");
         osmSerializerJaxb.serializeFromOsm(osm, osmToPath.toFile());
+    }
+
+    @Test
+    void streamDeserialization() {
+        final Path osmPath =
+                Path.of(
+                        System.getProperty("user.dir"),
+                        "src",
+                        "test",
+                        "resources",
+                        "data",
+                        "osm",
+                        "test2.osm");
+        osmDeserializeImpl.parse(osmPath.toFile());
     }
 }
