@@ -41,6 +41,6 @@ public class MemberProcessor extends BaseProcessor implements XmlEventProcessor 
     public void process(final XMLEvent event) throws XMLStreamException {
         final Member member = new Member();
         process(event, member);
-        log.debug("-->> member : {}", member);
+        obj = member;
     }
 }

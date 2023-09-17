@@ -41,6 +41,6 @@ public class NodeProcessor extends BaseProcessor implements XmlEventProcessor {
     public void process(final XMLEvent event) throws XMLStreamException {
         final Node node = new Node();
         process(event, node);
-        log.debug("-->> node : {}", node);
+        obj = node;
     }
 }

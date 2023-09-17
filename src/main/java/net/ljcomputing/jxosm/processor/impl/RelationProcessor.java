@@ -41,6 +41,6 @@ public class RelationProcessor extends BaseProcessor implements XmlEventProcesso
     public void process(final XMLEvent event) throws XMLStreamException {
         final Relation relation = new Relation();
         process(event, relation);
-        log.debug("-->> relation : {}", relation);
+        obj = relation;
     }
 }

@@ -41,6 +41,6 @@ public class TagProcessor extends BaseProcessor implements XmlEventProcessor {
     public void process(final XMLEvent event) throws XMLStreamException {
         final Tag tag = new Tag();
         process(event, tag);
-        log.debug("-->> tag: {}", tag);
+        obj = tag;
     }
 }

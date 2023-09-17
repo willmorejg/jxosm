@@ -27,4 +27,6 @@ public interface XmlEventProcessor {
     String getElementToProcess();
 
     void process(XMLEvent event) throws XMLStreamException;
+
+    Object getObject();
 }

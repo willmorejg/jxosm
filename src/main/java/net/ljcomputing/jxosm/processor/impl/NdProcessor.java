@@ -41,6 +41,6 @@ public class NdProcessor extends BaseProcessor implements XmlEventProcessor {
     public void process(final XMLEvent event) throws XMLStreamException {
         final Nd nd = new Nd();
         process(event, nd);
-        log.debug("-->> nd : {}", nd);
+        obj = nd;
     }
 }

@@ -53,6 +53,7 @@ public class OsmDeserializeImpl {
 
                     if (processor != null) {
                         processor.process(event);
+                        log.debug("{}", processor.getObject());
                     }
                 }
 

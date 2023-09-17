@@ -26,6 +26,12 @@ import javax.xml.stream.events.XMLEvent;
 import net.ljcomputing.jxosm.utils.XmlEventUtils;
 
 public abstract class BaseProcessor {
+    Object obj;
+
+    public Object getObject() {
+        return obj;
+    }
+
     protected void process(final XMLEvent event, final Object obj) throws XMLStreamException {
         final Map<String, String> map = XmlEventUtils.xmlAttributesToMap(event);
         XmlEventUtils.populateProperties(obj, map);

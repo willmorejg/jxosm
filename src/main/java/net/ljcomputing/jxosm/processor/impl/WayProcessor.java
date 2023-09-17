@@ -41,6 +41,6 @@ public class WayProcessor extends BaseProcessor implements XmlEventProcessor {
     public void process(final XMLEvent event) throws XMLStreamException {
         final Way way = new Way();
         process(event, way);
-        log.debug("-->> way: {}", way);
+        obj = way;
     }
 }
