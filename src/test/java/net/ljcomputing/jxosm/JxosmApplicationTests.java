@@ -30,6 +30,7 @@ import net.ljcomputing.jxosm.jaxb.Osm;
 import net.ljcomputing.jxosm.jaxb.Way;
 import net.ljcomputing.jxosm.serialization.OsmSerializer;
 import net.ljcomputing.jxosm.serialization.impl.OsmDeserializeImpl;
+import net.ljcomputing.jxosm.serialization.impl.SparkOsmSerialization;
 import org.assertj.core.util.Arrays;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
@@ -45,6 +46,7 @@ class JxosmApplicationTests {
     @Autowired private Marshaller osmMarshaller;
     @Autowired private OsmSerializer osmSerializerJaxb;
     @Autowired private OsmDeserializeImpl osmDeserializeImpl;
+    @Autowired private SparkOsmSerialization sparkOsmSerialization;
 
     @Test
     @Disabled
@@ -91,6 +93,7 @@ class JxosmApplicationTests {
     }
 
     @Test
+    @Disabled
     void streamDeserialization() {
         final Path osmPath =
                 Path.of(
@@ -102,5 +105,25 @@ class JxosmApplicationTests {
                         "osm",
                         "test.osm");
         osmDeserializeImpl.parse(osmPath.toFile());
+    }
+
+    @Test
+    void sparkDeserialization() {
+        final Path osmPath =
+                // Path.of(
+                //         System.getProperty("user.dir"),
+                //         "src",
+                //         "test",
+                //         "resources",
+                //         "data",
+                //         "osm",
+                //         "test.osm");
+                Path.of(
+                        System.getProperty("user.home"),
+                        "gis_data",
+                        "osm",
+                        "new-jersey-latest.osm");
+        sparkOsmSerialization.deserializeToOsm(osmPath.toFile());
+        log.debug("finished");
     }
 }

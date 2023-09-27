@@ -23,8 +23,10 @@ package net.ljcomputing.jxosm.processor.impl;
 import java.util.Map;
 import javax.xml.stream.XMLStreamException;
 import javax.xml.stream.events.XMLEvent;
+import lombok.extern.slf4j.Slf4j;
 import net.ljcomputing.jxosm.utils.XmlEventUtils;
 
+@Slf4j
 public abstract class BaseProcessor {
     Object obj;
 
@@ -35,5 +37,6 @@ public abstract class BaseProcessor {
     protected void process(final XMLEvent event, final Object obj) throws XMLStreamException {
         final Map<String, String> map = XmlEventUtils.xmlAttributesToMap(event);
         XmlEventUtils.populateProperties(obj, map);
+        log.debug("-- populated: {}", obj);
     }
 }

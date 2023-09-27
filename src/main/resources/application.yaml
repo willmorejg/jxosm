@@ -1,0 +1,4 @@
+spark:
+    app-name: Java XML OpenStreetMaps
+    master: local[*]
+    data-directory: classpath:data/

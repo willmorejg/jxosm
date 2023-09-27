@@ -52,6 +52,13 @@ dependencies {
 
 	implementation 'io.github.threeten-jaxb:threeten-jaxb-core:1.2'
 
+	implementation 'org.apache.spark:spark-core_2.13:3.4.0'
+	implementation 'org.apache.spark:spark-unsafe_2.13:3.4.0'
+	implementation 'org.apache.spark:spark-sql_2.13:3.4.0'
+	implementation 'org.apache.spark:spark-avro_2.13:3.4.0'
+	implementation 'com.databricks:spark-xml_2.13:0.17.0'
+
+
 	compileOnly 'org.projectlombok:lombok'
 
 	annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
